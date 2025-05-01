@@ -7,6 +7,8 @@
 #define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
 #endif
 
+#define NUM_THREADS 4
+
 typedef unsigned short mtype;
 
 /* Read sequence from a file to a char vector.
@@ -68,33 +70,47 @@ mtype ** allocateScoreMatrix(int sizeA, int sizeB) {
 
 void initScoreMatrix(mtype ** scoreMatrix, int sizeA, int sizeB) {
 	int i, j;
-	//Fill first line of LCS score matrix with zeroes
+
+	// Inicialização sequencial
+	// avg_time = 0,0015 total 
+	// //Fill first line of LCS score matrix with zeroes
+	// for (j = 0; j < (sizeA + 1); j++)
+	// 	scoreMatrix[0][j] = 0;
+
+	// //Do the same for the first collumn
+	// for (i = 1; i < (sizeB + 1); i++)
+	// 	scoreMatrix[i][0] = 0;
+
+	// Inicialização em paralelo 
+	// avg_time = 0,0025 total
+	// Aparentemente não há ganho de performance, pelo contrário, há perda (testar no pc do dinf pois é nele que será baseado o relatório)
+	#pragma omp parallel for private(j)
 	for (j = 0; j < (sizeA + 1); j++)
 		scoreMatrix[0][j] = 0;
 
-	//Do the same for the first collumn
+	#pragma omp parallel for
 	for (i = 1; i < (sizeB + 1); i++)
 		scoreMatrix[i][0] = 0;
 }
 
-int LCS(mtype ** scoreMatrix, int sizeA, int sizeB, char * seqA, char *seqB) {
-	int i, j;
-	for (i = 1; i < sizeB + 1; i++) {
-		for (j = 1; j < sizeA + 1; j++) {
-			if (seqA[j - 1] == seqB[i - 1]) {
-				/* if elements in both sequences match,
-				 the corresponding score will be the score from
-				 previous elements + 1*/
-				scoreMatrix[i][j] = scoreMatrix[i - 1][j - 1] + 1;
-			} else {
-				/* else, pick the maximum value (score) from left and upper elements*/
-				scoreMatrix[i][j] =
-						max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]);
-			}
-		}
-	}
-	return scoreMatrix[sizeB][sizeA];
+int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
+    int max_k = sizeA + sizeB;
+    for (int k = 2; k <= max_k; k++) {
+        int start_i = (k > sizeA) ? k - sizeA : 1;
+        int end_i = (k - 1 < sizeB) ? k - 1 : sizeB;
+        #pragma omp parallel for
+        for (int i = start_i; i <= end_i; i++) {
+            int j = k - i;
+            if (seqA[j-1] == seqB[i-1]) {
+                scoreMatrix[i][j] = scoreMatrix[i-1][j-1] + 1;
+            } else {
+                scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]);
+            }
+        }
+    }
+    return scoreMatrix[sizeB][sizeA];
 }
+
 void printMatrix(char * seqA, char * seqB, mtype ** scoreMatrix, int sizeA,
 		int sizeB) {
 	int i, j;
