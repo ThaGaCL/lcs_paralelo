@@ -53,7 +53,7 @@ for option in "${options[@]}"; do
     seq_total=$(printf "%s + %s\n" "$seq_total" "$runtime" | bc -l)
   done
   seq_avg=$(printf "scale=3; %s / $num_iterations\n" "$seq_total" | bc -l)
-  echo "SEQUENTIAL Average: ${par_avg}s"
+  echo "SEQUENTIAL Average: ${seq_avg}s"
   cd ..
 
   echo "Finished tests for $option"

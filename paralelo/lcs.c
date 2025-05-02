@@ -7,7 +7,7 @@
 #define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
 #endif
 
-#define NUM_THREADS 4
+#define NUM_THREADS 4 // Definido para o maximo de threads disponiveis no pc do dinf
 
 typedef unsigned short mtype;
 
@@ -73,38 +73,41 @@ void initScoreMatrix(mtype ** scoreMatrix, int sizeA, int sizeB) {
 
 	// Inicialização sequencial
 	// avg_time = 0,0015 total 
-	// //Fill first line of LCS score matrix with zeroes
-	// for (j = 0; j < (sizeA + 1); j++)
-	// 	scoreMatrix[0][j] = 0;
+	//Fill first line of LCS score matrix with zeroes
+	for (j = 0; j < (sizeA + 1); j++)
+		scoreMatrix[0][j] = 0;
 
-	// //Do the same for the first collumn
-	// for (i = 1; i < (sizeB + 1); i++)
-	// 	scoreMatrix[i][0] = 0;
+	//Do the same for the first collumn
+	for (i = 1; i < (sizeB + 1); i++)
+		scoreMatrix[i][0] = 0;
 
 	// Inicialização em paralelo 
 	// avg_time = 0,0025 total
 	// Aparentemente não há ganho de performance, pelo contrário, há perda (testar no pc do dinf pois é nele que será baseado o relatório)
-	#pragma omp parallel for private(j)
-	for (j = 0; j < (sizeA + 1); j++)
-		scoreMatrix[0][j] = 0;
+	// #pragma omp parallel for private(j)
+	// for (j = 0; j < (sizeA + 1); j++)
+	// 	scoreMatrix[0][j] = 0;
 
-	#pragma omp parallel for
-	for (i = 1; i < (sizeB + 1); i++)
-		scoreMatrix[i][0] = 0;
+	// #pragma omp parallel for
+	// for (i = 1; i < (sizeB + 1); i++)
+	// 	scoreMatrix[i][0] = 0;
 }
 
 int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
     int max_k = sizeA + sizeB;
-    for (int k = 2; k <= max_k; k++) {
-        int start_i = (k > sizeA) ? k - sizeA : 1;
-        int end_i = (k - 1 < sizeB) ? k - 1 : sizeB;
-        #pragma omp parallel for
-        for (int i = start_i; i <= end_i; i++) {
-            int j = k - i;
-            if (seqA[j-1] == seqB[i-1]) {
-                scoreMatrix[i][j] = scoreMatrix[i-1][j-1] + 1;
-            } else {
-                scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]);
+    #pragma omp parallel num_threads(NUM_THREADS)
+    {
+        for (int k = 2; k <= max_k; k++) {
+            int start_i = (k > sizeA) ? k - sizeA : 1;
+            int end_i = (k - 1 < sizeB) ? k - 1 : sizeB;
+            #pragma omp for  
+            for (int i = start_i; i <= end_i; i++) {
+                int j = k - i;
+                if (seqA[j-1] == seqB[i-1]) {
+                    scoreMatrix[i][j] = scoreMatrix[i-1][j-1] + 1;
+                } else {
+                    scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]);
+                }
             }
         }
     }
