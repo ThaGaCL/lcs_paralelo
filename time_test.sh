@@ -1,13 +1,13 @@
 #!/bin/bash
 
-export TIMEFORMAT='%3R'
+export TIMEFORMAT='%5R'
 export LC_NUMERIC="en_US.UTF-8"
 
 PAR_DIR="paralelo"
 SEQ_DIR="sequencial"
 
-options=("original" "noRepeat" "noRepeatBig" "big")
-num_iterations=20
+options=("original" "noRepeat" "noRepeatBig" "big" "huge")
+num_iterations=100
 
 # Initialization 
 cd $PAR_DIR 
@@ -36,7 +36,7 @@ for option in "${options[@]}"; do
   cd $PAR_DIR
   echo "Testing PARALLEL version for $option"
   par_total=$(init_total)
-  for i in {1..$num_iterations}; do
+  for ((i=0; i<num_iterations; i++)); do  # Corrected loop
     runtime=$( { time ./lcs > /dev/null; } 2>&1 )
     par_total=$(printf "%s + %s\n" "$par_total" "$runtime" | bc -l)
   done

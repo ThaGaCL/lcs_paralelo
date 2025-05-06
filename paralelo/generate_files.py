@@ -14,8 +14,8 @@ if len(sys.argv) != 2:
     sys.exit(1)
 option = sys.argv[1]
 # Check if the option is valid
-if option not in ["original", "big", "noRepeat", "noRepeatBig"]:
-    print("Invalid option. Options are: original, big, noRepeat, noRepeatBig")
+if option not in ["original", "big", "noRepeat", "noRepeatBig", "huge"]:
+    print("Invalid option. Options are: original, big, noRepeat, noRepeatBig", "huge")
     sys.exit(1)
 
 
@@ -56,6 +56,13 @@ elif option == "big":
         f.write("ABCDXY" * 2500)
     print("Big example files created. EXPECTED OUTPUT: 10000")
     
+elif option == "huge":
+    # Huge
+    with open("fileA.in", "w") as f:
+        f.write("ABCD" * 15000)
+    with open("fileB.in", "w") as f:
+        f.write("ABCDXY" * 15000) 
+    print("Huge example files created. EXPECTED OUTPUT: 10000")
 # Big
 
 

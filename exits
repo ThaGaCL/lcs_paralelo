@@ -1,0 +1,86 @@
+7 threads
+100 iterações
+----------------------------------------
+Starting tests for original
+Testing PARALLEL version for original
+PARALLEL Average: .005s
+Testing SEQUENTIAL version for original
+SEQUENTIAL Average: 0s
+Finished tests for original
+----------------------------------------
+----------------------------------------
+Starting tests for noRepeat
+Testing PARALLEL version for noRepeat
+PARALLEL Average: .002s
+Testing SEQUENTIAL version for noRepeat
+SEQUENTIAL Average: 0s
+Finished tests for noRepeat
+----------------------------------------
+----------------------------------------
+Starting tests for noRepeatBig
+Testing PARALLEL version for noRepeatBig
+PARALLEL Average: .210s
+Testing SEQUENTIAL version for noRepeatBig
+SEQUENTIAL Average: .002s
+Finished tests for noRepeatBig
+----------------------------------------
+----------------------------------------
+Starting tests for big
+Testing PARALLEL version for big
+PARALLEL Average: .314s
+Testing SEQUENTIAL version for big
+SEQUENTIAL Average: .003s
+Finished tests for big
+----------------------------------------
+----------------------------------------
+Starting tests for huge
+Testing PARALLEL version for huge
+PARALLEL Average: 27.983s
+Testing SEQUENTIAL version for huge
+SEQUENTIAL Average: .070s
+Finished tests for huge
+----------------------------------------
+
+4 threads
+100 iterações
+
+----------------------------------------
+Starting tests for original
+Testing PARALLEL version for original
+PARALLEL Average: .001s
+Testing SEQUENTIAL version for original
+SEQUENTIAL Average: 0s
+Finished tests for original
+----------------------------------------
+----------------------------------------
+Starting tests for noRepeat
+Testing PARALLEL version for noRepeat
+PARALLEL Average: .001s
+Testing SEQUENTIAL version for noRepeat
+SEQUENTIAL Average: 0s
+Finished tests for noRepeat
+----------------------------------------
+----------------------------------------
+Starting tests for noRepeatBig
+Testing PARALLEL version for noRepeatBig
+PARALLEL Average: .201s
+Testing SEQUENTIAL version for noRepeatBig
+SEQUENTIAL Average: .002s
+Finished tests for noRepeatBig
+----------------------------------------
+----------------------------------------
+Starting tests for big
+Testing PARALLEL version for big
+PARALLEL Average: .308s
+Testing SEQUENTIAL version for big
+SEQUENTIAL Average: .003s
+Finished tests for big
+----------------------------------------
+----------------------------------------
+Starting tests for huge
+Testing PARALLEL version for huge
+PARALLEL Average: 31.841s
+Testing SEQUENTIAL version for huge
+SEQUENTIAL Average: .085s
+Finished tests for huge
+----------------------------------------

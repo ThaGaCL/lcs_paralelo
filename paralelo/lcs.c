@@ -94,19 +94,21 @@ void initScoreMatrix(mtype ** scoreMatrix, int sizeA, int sizeB) {
 }
 
 int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
-    int max_k = sizeA + sizeB;
+    int max_k = sizeA + sizeB; // Calcula o indice maximo da diagonal
     #pragma omp parallel num_threads(NUM_THREADS)
     {
+		// Começa com 2 pq a primeira diagonal valida é a 2 (i=1,j=1) já que a primeira linha e coluna são inicializadas com 0
         for (int k = 2; k <= max_k; k++) {
+			// Encontra o inicio e fim da diagonal valida
             int start_i = (k > sizeA) ? k - sizeA : 1;
             int end_i = (k - 1 < sizeB) ? k - 1 : sizeB;
             #pragma omp for  
             for (int i = start_i; i <= end_i; i++) {
-                int j = k - i;
-                if (seqA[j-1] == seqB[i-1]) {
-                    scoreMatrix[i][j] = scoreMatrix[i-1][j-1] + 1;
+                int j = k - i; // Calcula a coluna correspondente pra diagonal k
+                if (seqA[j-1] == seqB[i-1]) { // Ve se deu o match 
+                    scoreMatrix[i][j] = scoreMatrix[i-1][j-1] + 1; // Se sim, soma 1 ao score da diagonal anterior
                 } else {
-                    scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]);
+                    scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]); // Se não, pega o maximo entre a diagonal anterior e a linha anterior
                 }
             }
         }
@@ -117,7 +119,6 @@ int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
 void printMatrix(char * seqA, char * seqB, mtype ** scoreMatrix, int sizeA,
 		int sizeB) {
 	int i, j;
-
 	//print header
 	printf("Score Matrix:\n");
 	printf("========================================\n");
