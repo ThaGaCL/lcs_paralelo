@@ -7,7 +7,9 @@
 #define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
 #endif
 
-#define NUM_THREADS 4 // Definido para o maximo de threads disponiveis no pc do dinf
+
+#define NUM_THREADS 4
+int nthreads = 1;
 
 typedef unsigned short mtype;
 
@@ -93,16 +95,45 @@ void initScoreMatrix(mtype ** scoreMatrix, int sizeA, int sizeB) {
 	// 	scoreMatrix[i][0] = 0;
 }
 
+
+void printMatrix(char * seqA, char * seqB, mtype ** scoreMatrix, int sizeA,
+	int sizeB) {
+int i, j;
+//print header
+printf("Score Matrix:\n");
+printf("========================================\n");
+
+//print LCS score matrix allong with sequences
+
+printf("    ");
+printf("%5c   ", ' ');
+
+for (j = 0; j < sizeA; j++)
+	printf("%5c   ", seqA[j]);
+printf("\n");
+for (i = 0; i < sizeB + 1; i++) {
+	if (i == 0)
+		printf("    ");
+	else
+		printf("%c   ", seqB[i - 1]);
+	for (j = 0; j < sizeA + 1; j++) {
+		printf("%5d   ", scoreMatrix[i][j]);
+	}
+	printf("\n");
+}
+printf("========================================\n");
+}
+
 int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
     int max_k = sizeA + sizeB; // Calcula o indice maximo da diagonal
-    #pragma omp parallel num_threads(NUM_THREADS)
+    #pragma omp parallel num_threads(nthreads)// Inicia a paralelização
     {
 		// Começa com 2 pq a primeira diagonal valida é a 2 (i=1,j=1) já que a primeira linha e coluna são inicializadas com 0
         for (int k = 2; k <= max_k; k++) {
 			// Encontra o inicio e fim da diagonal valida
             int start_i = (k > sizeA) ? k - sizeA : 1;
             int end_i = (k - 1 < sizeB) ? k - 1 : sizeB;
-            #pragma omp for  
+            #pragma omp for schedule(auto)
             for (int i = start_i; i <= end_i; i++) {
                 int j = k - i; // Calcula a coluna correspondente pra diagonal k
                 if (seqA[j-1] == seqB[i-1]) { // Ve se deu o match 
@@ -110,38 +141,11 @@ int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
                 } else {
                     scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]); // Se não, pega o maximo entre a diagonal anterior e a linha anterior
                 }
-            }
+				printMatrix(seqA, seqB, scoreMatrix, sizeA, sizeB);
+			}
         }
     }
     return scoreMatrix[sizeB][sizeA];
-}
-
-void printMatrix(char * seqA, char * seqB, mtype ** scoreMatrix, int sizeA,
-		int sizeB) {
-	int i, j;
-	//print header
-	printf("Score Matrix:\n");
-	printf("========================================\n");
-
-	//print LCS score matrix allong with sequences
-
-	printf("    ");
-	printf("%5c   ", ' ');
-
-	for (j = 0; j < sizeA; j++)
-		printf("%5c   ", seqA[j]);
-	printf("\n");
-	for (i = 0; i < sizeB + 1; i++) {
-		if (i == 0)
-			printf("    ");
-		else
-			printf("%c   ", seqB[i - 1]);
-		for (j = 0; j < sizeA + 1; j++) {
-			printf("%5d   ", scoreMatrix[i][j]);
-		}
-		printf("\n");
-	}
-	printf("========================================\n");
 }
 
 void freeScoreMatrix(mtype **scoreMatrix, int sizeB) {
@@ -157,6 +161,17 @@ int main(int argc, char ** argv) {
 
 	// sizes of both sequences
 	int sizeA, sizeB;
+
+	if(!argv[1]){
+		printf("Uso correto: %s <num_threads>\n", argv[0]);
+		exit(1);
+	}
+	nthreads = atoi(argv[1]);
+
+	if (nthreads < 1) {
+		printf("Number of threads must be greater than 0.\n");
+		exit(1);
+	}
 
 	//read both sequences
 	seqA = read_seq("fileA.in");

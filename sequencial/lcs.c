@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <omp.h>
 
 #ifndef max
 #define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
@@ -146,13 +147,22 @@ int main(int argc, char ** argv) {
 	sizeB = strlen(seqB);
 
 	// allocate LCS score matrix
+	// uses openMP timer to measure how long it takes to allocate the matrix
+	// and fill it up with zeroes
+	double start_time, end_time;
+	start_time = omp_get_wtime();
 	mtype ** scoreMatrix = allocateScoreMatrix(sizeA, sizeB);
 
 	//initialize LCS score matrix
 	initScoreMatrix(scoreMatrix, sizeA, sizeB);
+	end_time = omp_get_wtime();
+	printf("Tempo para alocar e inicializar a matriz (não paralelizavel): %f seconds\n", end_time - start_time);
 
 	//fill up the rest of the matrix and return final score (element locate at the last line and collumn)
+	start_time = omp_get_wtime();
 	mtype score = LCS(scoreMatrix, sizeA, sizeB, seqA, seqB);
+	end_time = omp_get_wtime();
+	printf("Tempo para calcular a matriz (paralelizavel): %f seconds\n", end_time - start_time);
 
 	/* if you wish to see the entire score matrix,
 	 for debug purposes, define DEBUGMATRIX. */

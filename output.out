@@ -1,0 +1,720 @@
+----------------------------------------
+Testing PARALLEL (small) with 1 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.977 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 1 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 1.000 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 1 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.974 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 1 threads
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+PARALLEL Average: 94.171 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 2 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.545 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 2 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.546 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 2 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.545 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 2 threads
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+PARALLEL Average: 53.252 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 4 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.301 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 4 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.301 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 4 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.301 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 4 threads
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+PARALLEL Average: 36.211 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 8 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.284 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 8 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.281 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 8 threads
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+
+Score: 10000
+PARALLEL Average: 0.286 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 8 threads
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+
+Score: 60000
+PARALLEL Average: 35.126 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (small)
+SEQUENTIAL Average: 0.316 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (medium)
+SEQUENTIAL Average: 0.314 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (big)
+SEQUENTIAL Average: 0.317 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (huge)
+SEQUENTIAL Average: 10.988 s
+----------------------------------------
