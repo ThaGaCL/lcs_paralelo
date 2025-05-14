@@ -74,9 +74,9 @@ elif option == "big":
 elif option == "huge":
     # Huge
     with open("fileA.in", "w") as f:
-        f.write("ABCD" * 15000) # 60,000 characters
+        f.write("ABCD" * 12000) # 60,000 characters
     with open("fileB.in", "w") as f:
-        f.write("ABCDXY" * 15000) # 90,000 characters
+        f.write("ABCDXY" * 12000) # 90,000 characters
     print("Huge example files created. EXPECTED OUTPUT: 10000")
 # Big
 

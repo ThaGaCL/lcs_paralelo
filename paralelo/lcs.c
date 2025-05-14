@@ -141,7 +141,7 @@ int LCS(mtype **scoreMatrix, int sizeA, int sizeB, char *seqA, char *seqB) {
                 } else {
                     scoreMatrix[i][j] = max(scoreMatrix[i-1][j], scoreMatrix[i][j-1]); // Se não, pega o maximo entre a diagonal anterior e a linha anterior
                 }
-				printMatrix(seqA, seqB, scoreMatrix, sizeA, sizeB);
+				// printMatrix(seqA, seqB, scoreMatrix, sizeA, sizeB);
 			}
         }
     }

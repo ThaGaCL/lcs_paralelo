@@ -1,0 +1,80 @@
+----------------------------------------
+Testing PARALLEL (small) with 1 threads
+PARALLEL Average: 1.150 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 1 threads
+PARALLEL Average: 1.146 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 1 threads
+PARALLEL Average: 1.080 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 1 threads
+PARALLEL Average: 65.573 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 2 threads
+PARALLEL Average: 0.613 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 2 threads
+PARALLEL Average: 0.581 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 2 threads
+PARALLEL Average: 0.580 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 2 threads
+PARALLEL Average: 32.142 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 4 threads
+PARALLEL Average: 0.318 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 4 threads
+PARALLEL Average: 0.319 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 4 threads
+PARALLEL Average: 0.314 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 4 threads
+PARALLEL Average: 20.788 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (small) with 8 threads
+PARALLEL Average: 0.320 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (medium) with 8 threads
+PARALLEL Average: 0.323 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (big) with 8 threads
+PARALLEL Average: 0.329 s
+----------------------------------------
+----------------------------------------
+Testing PARALLEL (huge) with 8 threads
+PARALLEL Average: 20.761 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (small)
+SEQUENTIAL Average: 0.330 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (medium)
+SEQUENTIAL Average: 1.301 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (big)
+SEQUENTIAL Average: 5.108 s
+----------------------------------------
+----------------------------------------
+Testing SEQUENTIAL (huge)
+SEQUENTIAL Average: 7.268 s
+----------------------------------------
